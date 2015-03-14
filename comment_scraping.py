@@ -148,10 +148,10 @@ import sys
 
 args = sys.argv
 # arguments should be year1,month1,date1, year2, month2, date2
-date1 = dt(int(args[1]),int(args[2]), int(args[3]))
-date2 = dt(int(args[4]),int(args[5]), int(args[6]))
+#date1 = dt(int(args[1]),int(args[2]), int(args[3]))
+#date2 = dt(int(args[4]),int(args[5]), int(args[6]))
 
-date_span = list(datespan(date1, date2))
+#date_span = list(datespan(date1, date2))
 
 
 # In[51]:
@@ -162,12 +162,9 @@ from timeit import timeit
 total = 0
 #date_span = list(datespan(dt(2013,1,5), dt(2013,1,10)))
 
-for date in date_span:
-    time = timeit('process_date(date)', 
-                 setup = 'from __main__ import process_date, date', 
-                 number = 1)
-    total += time
-    print 'completed in ', time / 60,         ' minutes, current time = ',          total/60, ' minutes.'
+def process_datespan(date_span):
+    for date in date_span:
+        process_date(date)
     
         
 
